@@ -1,97 +1,235 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>小米穿戴固件库</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="bg-orbit"></div>
-    <div class="bg-noise"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小米穿戴设备固件库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="update-date">上次更新于 2026/02/02</div>
+      <h1 class="main-title">小米穿戴设备固件库</h1>
+      <p class="subtitle">为你的穿戴设备匹配最合适的固件版本</p>
+    </div>
 
-    <header class="hero">
-      <div class="hero-inner">
-        <h1>小米穿戴固件库</h1>
-        <p class="subhead">
-          为你的穿戴设备匹配最合适的固件版本
-        </p>
+    <!-- Device Selector Card -->
+    <div class="selector-card">
+      <div class="selector-content">
+        <!-- Watch Icon + Label -->
+        <div class="selector-left">
+          <div class="watch-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="7" />
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </div>
+          <div class="selector-label">
+            <div class="label-main">选择设备</div>
+            <div class="label-sub">选择设备以获取固件列表</div>
+          </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <div class="dropdown-value">小米手环 10 Pro</div>
+          <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
       </div>
-    </header>
+    </div>
 
-    <main class="container">
-      <section class="panel">
-        <div class="selector">
-          <div class="selector-row">
-            <h2 for="device-select">设备型号</h2>
-            <div class="select-wrap">
-              <select id="device-select">
-                <option value="">请选择设备型号</option>
-              </select>
-              <span class="select-icon">v</span>
+    <!-- Firmware List Label -->
+    <div class="firmware-label">固件列表</div>
+
+    <!-- Firmware List -->
+    <div class="firmware-list">
+      <!-- Firmware Item 1 -->
+      <div class="firmware-item">
+        <div class="firmware-left">
+          <div class="firmware-version">1.2.0</div>
+          <div class="firmware-meta">
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>55.2MB</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+              </svg>
+              <span>测试版</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>2025/10/5</span>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="panel" id="device-panel" hidden>
-        <div class="panel-header">
-          <div>
-            <h2 id="device-name">设备名称</h2>
-            <p id="device-meta">固件列表 · 版本/日期/标签</p>
-          </div>
-          <div class="pill" id="device-status">固件数 · 0</div>
+        <div class="firmware-right">
+          <button class="btn-changelog">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>更新日志</span>
+          </button>
+          <button class="btn-download">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>下载</span>
+          </button>
         </div>
+      </div>
 
-        <div class="device-grid">
-          <div class="device-card">
-            <h3>当前选中设备</h3>
-            <p id="device-desc">—</p>
-          </div>
-          <div class="device-card accent">
-            <h3>下载建议</h3>
-            <ul id="device-tips">
-              <li>下载前请确认设备电量大于 50%</li>
-              <li>更新时不要断开数据线或中断供电</li>
-              <li>如需旧版固件，请在列表中选择</li>
-            </ul>
+      <!-- Firmware Item 2 -->
+      <div class="firmware-item">
+        <div class="firmware-left">
+          <div class="firmware-version">1.1.0</div>
+          <div class="firmware-meta">
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>55.2MB</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+              </svg>
+              <span>测试版</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>2025/10/5</span>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="panel" id="firmware-panel" hidden>
-        <div class="panel-header">
-          <div>
-            <h2>固件列表</h2>
-            <p>按发布日期倒序排列，标记最新版本</p>
-          </div>
-          <div class="chip" id="firmware-count">固件 · 0</div>
+        <div class="firmware-right">
+          <button class="btn-changelog">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>更新日志</span>
+          </button>
+          <button class="btn-download">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>下载</span>
+          </button>
         </div>
+      </div>
 
-        <div class="firmware-list" id="firmware-list"></div>
-      </section>
+      <!-- Firmware Item 3 -->
+      <div class="firmware-item">
+        <div class="firmware-left">
+          <div class="firmware-version">1.0</div>
+          <div class="firmware-meta">
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>55.2MB</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+              </svg>
+              <span>测试版</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>2025/10/5</span>
+            </div>
+          </div>
+        </div>
+        <div class="firmware-right">
+          <button class="btn-changelog">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>更新日志</span>
+          </button>
+          <button class="btn-download">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>下载</span>
+          </button>
+        </div>
+      </div>
 
-      <section class="panel notice" id="empty-panel" hidden>
-        <h2>暂无固件</h2>
-        <p>当前型号暂未发布固件，请稍后再试或联系支持。</p>
-      </section>
-
-      <section class="panel error" id="error-panel" hidden>
-        <h2>加载失败</h2>
-        <p id="error-text">无法读取固件列表，请检查 firmware.json。</p>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>© 2026 穿戴设备固件下载站 · 下载前请确认版本与标签</p>
-    </footer>
-
-    <script src="app.js"></script>
-  </body>
+      <!-- Firmware Item 4 -->
+      <div class="firmware-item">
+        <div class="firmware-left">
+          <div class="firmware-version">0.9</div>
+          <div class="firmware-meta">
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>55.2MB</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
+              </svg>
+              <span>测试版</span>
+            </div>
+            <div class="meta-item">
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>2025/10/5</span>
+            </div>
+          </div>
+        </div>
+        <div class="firmware-right">
+          <button class="btn-changelog">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>更新日志</span>
+          </button>
+          <button class="btn-download">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>下载</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
