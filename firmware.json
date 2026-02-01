@@ -1,0 +1,14 @@
+﻿{
+  "lastUpdated": "2026-02-01",
+  "devices": {
+    "小米手环 10": [
+      {
+        "version": "1.4.3",
+        "date": "2026-01-15",
+        "size": "48.2 MB",
+        "tag": "稳定版",
+        "file": "https://downloads.example.com/miwear/x2/1.4.3.bin"
+      }
+    ]
+  }
+}

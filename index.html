@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小米穿戴固件库</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbit"></div>
+    <div class="bg-noise"></div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>小米穿戴固件库</h1>
+        <p class="subhead">
+          为你的穿戴设备匹配最合适的固件版本
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel">
+        <div class="selector">
+          <div class="selector-row">
+            <h2 for="device-select">设备型号</h2>
+            <div class="select-wrap">
+              <select id="device-select">
+                <option value="">请选择设备型号</option>
+              </select>
+              <span class="select-icon">v</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="device-panel" hidden>
+        <div class="panel-header">
+          <div>
+            <h2 id="device-name">设备名称</h2>
+            <p id="device-meta">固件列表 · 版本/日期/标签</p>
+          </div>
+          <div class="pill" id="device-status">固件数 · 0</div>
+        </div>
+
+        <div class="device-grid">
+          <div class="device-card">
+            <h3>当前选中设备</h3>
+            <p id="device-desc">—</p>
+          </div>
+          <div class="device-card accent">
+            <h3>下载建议</h3>
+            <ul id="device-tips">
+              <li>下载前请确认设备电量大于 50%</li>
+              <li>更新时不要断开数据线或中断供电</li>
+              <li>如需旧版固件，请在列表中选择</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="firmware-panel" hidden>
+        <div class="panel-header">
+          <div>
+            <h2>固件列表</h2>
+            <p>按发布日期倒序排列，标记最新版本</p>
+          </div>
+          <div class="chip" id="firmware-count">固件 · 0</div>
+        </div>
+
+        <div class="firmware-list" id="firmware-list"></div>
+      </section>
+
+      <section class="panel notice" id="empty-panel" hidden>
+        <h2>暂无固件</h2>
+        <p>当前型号暂未发布固件，请稍后再试或联系支持。</p>
+      </section>
+
+      <section class="panel error" id="error-panel" hidden>
+        <h2>加载失败</h2>
+        <p id="error-text">无法读取固件列表，请检查 firmware.json。</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 穿戴设备固件下载站 · 下载前请确认版本与标签</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
