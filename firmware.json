@@ -16,6 +16,30 @@
         "tag": "Beta版",
         "log": "修复部分内容2",
         "file": "https://downloads.example.com/miwear/x1/1.4.0.bin"
+      },{
+        "version": "1.4.0",
+        "date": "2026/01/15",
+        "size": "60.2 MB",
+        "tag": "Beta版",
+        "log": "修复部分内容2",
+        "file": "https://downloads.example.com/miwear/x1/1.4.0.bin"
+      }
+    ],
+    "小米手环 9 Pro": [
+      {
+        "version": "1.4.3",
+        "date": "2026/01/15",
+        "size": "48.2 MB",
+        "tag": "稳定版",
+        "log": "修复部分内容",
+        "file": "https://downloads.example.com/miwear/x2/1.4.3.bin"
+      },{
+        "version": "1.4.1",
+        "date": "2026/01/15",
+        "size": "60.2 MB",
+        "tag": "Beta版",
+        "log": "修复部分内容2",
+        "file": "https://downloads.example.com/miwear/x1/1.4.0.bin"
       }
     ]
   }
