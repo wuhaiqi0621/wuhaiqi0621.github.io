@@ -200,6 +200,8 @@
     /* Firmware card animations */
     .firmware-card {
       animation: slideUp 0.5s ease-out;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
 
     .firmware-card:nth-child(1) {
@@ -238,11 +240,34 @@
     /* Selector card animation */
     .selector-card {
       animation: slideUp 0.5s ease-out 0.1s both;
+      opacity: 0;
+      animation-fill-mode: forwards;
     }
 
     /* Header animation */
     .header-frame {
       animation: slideUp 0.5s ease-out;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    /* Initial state - hide all content until loaded */
+    .firmware-list {
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
+
+    .firmware-list.loaded {
+      opacity: 1;
+    }
+
+    /* Prevent FOUC (Flash of Unstyled Content) */
+    html {
+      background-color: #181818;
+    }
+
+    body {
+      background-color: #181818;
     }
   </style>
 </head>
@@ -422,6 +447,11 @@
         
         firmwareList.appendChild(card);
       });
+      
+      // Trigger animation by adding loaded class
+      setTimeout(() => {
+        firmwareList.classList.add('loaded');
+      }, 10);
     }
 
     // Store current firmware info for modal
