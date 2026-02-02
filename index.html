@@ -89,10 +89,8 @@
       // Populate device selector
       const deviceSelect = document.getElementById('deviceSelect');
       
-      // Clear existing options (except the first one)
-      while (deviceSelect.options.length > 1) {
-        deviceSelect.remove(1);
-      }
+      // Clear existing options
+      deviceSelect.innerHTML = '';
       
       const devices = Object.keys(firmwareData.devices);
       
@@ -103,8 +101,8 @@
         deviceSelect.appendChild(option);
       });
 
-      // Set first device as default if not already selected
-      if (devices.length > 0 && deviceSelect.value === '') {
+      // Set first device as default and render its firmware list
+      if (devices.length > 0) {
         deviceSelect.value = devices[0];
         renderFirmwareList(firmwareData.devices[devices[0]]);
       }
@@ -182,9 +180,8 @@
     }
 
     // Load data when page is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadFirmwareData);
-    } else {
+    window.addEventListener('load', loadFirmwareData);
+    if (document.readyState === 'complete') {
       loadFirmwareData();
     }
 
