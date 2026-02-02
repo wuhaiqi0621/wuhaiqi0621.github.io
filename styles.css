@@ -33,6 +33,9 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transform: scale(1.1);
+  transform-origin: top center;
+  transform-box: border-box;
 }
 
 /* Header Frame */
