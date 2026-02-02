@@ -1,13 +1,9 @@
-/* Design System - Dark Theme Firmware Library */
-/* Color Palette:
-   - Background: #181818
-   - Card Background: rgba(71, 71, 74, 0.3)
-   - Button Background: rgba(71, 71, 75, 0.3)
-   - Download Button: rgba(0, 136, 255, 0.2)
-   - Text Primary: rgba(255, 255, 255, 0.9)
-   - Text Secondary: rgba(255, 255, 255, 0.6)
-   - Text Tertiary: rgba(255, 255, 255, 0.4)
-   - Accent: #0088ff
+/* Figma Design System - Dark Theme Firmware Library
+   ================================================
+   Spacing: 4px base unit
+   Line Height: 1.2 (title), 1.4 (body)
+   Border Radius: 24px (cards), 10px (buttons), 8px (dropdown)
+   Colors: #181818 (bg), rgba(71, 71, 74, 0.3) (card), #0088ff (accent)
 */
 
 @font-face {
@@ -24,55 +20,84 @@
 }
 
 html, body {
-  font-family: 'MiSans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'MiSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: #181818;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
 }
 
-.container {
+/* Frame Container - Main wrapper */
+.frame-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header Frame */
+.header-frame {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px;
+  flex-shrink: 0;
 }
 
-/* Header Section */
-.header-section {
-  margin-bottom: 32px;
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .update-date {
   font-size: 14px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 8px;
   font-weight: 400;
+  letter-spacing: 0;
 }
 
 .main-title {
+  font-family: 'NSourceSong', serif;
   font-size: 48px;
-  font-weight: 400;
-  font-family: 'NSourceSong', 'Noto Serif SC', serif;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 12px;
   line-height: 1.2;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0;
 }
 
 .subtitle {
   font-size: 14px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Main Content Area */
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* Device Selector Card */
 .selector-card {
+  width: 100%;
   padding: 12px 14px;
   background-color: rgba(71, 71, 74, 0.3);
   border-radius: 24px;
-  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
-.selector-content {
+.selector-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -86,41 +111,41 @@ html, body {
   flex: 1;
 }
 
-.watch-icon {
+.selector-icon {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
 }
 
-.watch-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.selector-label {
+.selector-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0px;
   flex: 1;
 }
 
-.label-main {
+.selector-label {
   font-size: 15px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
 }
 
-.label-sub {
+.selector-sublabel {
   font-size: 12px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
 }
 
-.dropdown {
+.dropdown-wrapper {
   width: 209px;
   flex-shrink: 0;
+}
+
+.dropdown-item {
+  width: 100%;
   height: 32px;
   padding: 8px;
   background-color: rgba(71, 71, 74, 0.3);
@@ -131,27 +156,29 @@ html, body {
   gap: 8px;
 }
 
-.dropdown-value {
+.dropdown-text {
   font-size: 14px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
-  flex: 1;
   font-weight: 400;
+  flex: 1;
 }
 
-.dropdown-icon {
+.dropdown-caret {
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.6);
   flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Firmware List Label */
-.firmware-label {
+.firmware-list-label {
   font-size: 13px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.4);
-  padding: 12px 12px;
-  margin-bottom: 8px;
   font-weight: 400;
+  padding: 12px 12px;
+  flex-shrink: 0;
 }
 
 /* Firmware List */
@@ -159,12 +186,20 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.firmware-item {
+/* Firmware Card */
+.firmware-card {
+  width: 100%;
   padding: 14px;
   background-color: rgba(71, 71, 74, 0.3);
   border-radius: 24px;
+  flex-shrink: 0;
+}
+
+.firmware-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -180,6 +215,7 @@ html, body {
 
 .firmware-version {
   font-size: 15px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
 }
@@ -188,7 +224,6 @@ html, body {
   display: flex;
   gap: 36px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .meta-item {
@@ -196,6 +231,7 @@ html, body {
   align-items: center;
   gap: 4px;
   font-size: 13px;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
 }
@@ -205,7 +241,6 @@ html, body {
   height: 18px;
   flex-shrink: 0;
   opacity: 0.5;
-  object-fit: contain;
 }
 
 .firmware-right {
@@ -218,6 +253,7 @@ html, body {
 .btn-changelog,
 .btn-download {
   width: 153px;
+  height: 44px;
   padding: 12px;
   border: none;
   border-radius: 10px;
@@ -227,9 +263,11 @@ html, body {
   gap: 8px;
   cursor: pointer;
   font-size: 14px;
+  line-height: 1.4;
   font-weight: 400;
   transition: all 0.2s ease;
-  font-family: inherit;
+  font-family: 'MiSans', inherit;
+  flex-shrink: 0;
 }
 
 .btn-changelog {
@@ -244,7 +282,6 @@ html, body {
 .btn-download {
   background-color: rgba(0, 136, 255, 0.2);
   color: #0088ff;
-  font-weight: 400;
 }
 
 .btn-download:hover {
@@ -255,73 +292,69 @@ html, body {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  object-fit: contain;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .container {
+  .header-frame {
     padding: 16px;
+  }
+
+  .main-content {
+    padding: 0 8px;
   }
 
   .main-title {
     font-size: 32px;
   }
 
-  .firmware-item {
+  .firmware-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .firmware-right {
     width: 100%;
+    flex-direction: column;
   }
 
   .btn-changelog,
   .btn-download {
-    flex: 1;
+    width: 100%;
   }
 
   .firmware-meta {
-    flex-wrap: wrap;
     gap: 16px;
-  }
-
-  .selector-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .dropdown {
-    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
+  .header-frame {
     padding: 12px;
+  }
+
+  .main-content {
+    padding: 0 6px;
   }
 
   .main-title {
     font-size: 24px;
   }
 
-  .firmware-version {
-    font-size: 14px;
+  .firmware-card {
+    padding: 12px;
   }
 
   .btn-changelog,
   .btn-download {
     width: 100%;
+    height: 40px;
     padding: 10px;
-    font-size: 12px;
-  }
-
-  .meta-item {
     font-size: 12px;
   }
 
   .firmware-meta {
     gap: 12px;
+    flex-wrap: wrap;
   }
 }

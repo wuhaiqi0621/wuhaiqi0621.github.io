@@ -8,164 +8,174 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
+  <div class="frame-container">
     <!-- Header Section -->
-    <div class="header-section">
-      <div class="update-date">上次更新于 2026/02/02</div>
-      <h1 class="main-title">小米穿戴设备固件库</h1>
-      <p class="subtitle">为你的穿戴设备匹配最合适的固件版本</p>
-    </div>
-
-    <!-- Device Selector Card -->
-    <div class="selector-card">
-      <div class="selector-content">
-        <!-- Watch Icon + Label -->
-        <div class="selector-left">
-          <div class="watch-icon">
-            <img src="assets/Watch.svg" alt="Watch" />
-          </div>
-          <div class="selector-label">
-            <div class="label-main">选择设备</div>
-            <div class="label-sub">选择设备以获取固件列表</div>
-          </div>
-        </div>
-
-        <!-- Dropdown -->
-        <div class="dropdown">
-          <div class="dropdown-value">小米手环 10 Pro</div>
-          <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+    <div class="header-frame">
+      <div class="header-content">
+        <div class="update-date">上次更新于 2026/02/02</div>
+        <h1 class="main-title">小米穿戴设备固件库</h1>
+        <p class="subtitle">为你的穿戴设备匹配最合适的固件版本</p>
       </div>
     </div>
 
-    <!-- Firmware List Label -->
-    <div class="firmware-label">固件列表</div>
-
-    <!-- Firmware List -->
-    <div class="firmware-list">
-      <!-- Firmware Item 1 -->
-      <div class="firmware-item">
-        <div class="firmware-left">
-          <div class="firmware-version">1.2.0</div>
-          <div class="firmware-meta">
-            <div class="meta-item">
-              <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-              <span>55.2MB</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-              <span>测试版</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-              <span>2025/10/5</span>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Device Selector Card -->
+      <div class="selector-card">
+        <div class="selector-inner">
+          <div class="selector-left">
+            <img src="assets/Watch.svg" alt="Watch" class="selector-icon" />
+            <div class="selector-text">
+              <div class="selector-label">选择设备</div>
+              <div class="selector-sublabel">选择设备以获取固件列表</div>
             </div>
           </div>
-        </div>
-        <div class="firmware-right">
-          <button class="btn-changelog">
-            <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-            <span>更新日志</span>
-          </button>
-          <button class="btn-download">
-            <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-            <span>下载</span>
-          </button>
+          <div class="dropdown-wrapper">
+            <div class="dropdown-item">
+              <span class="dropdown-text">小米手环 10 Pro</span>
+              <svg class="dropdown-caret" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Firmware Item 2 -->
-      <div class="firmware-item">
-        <div class="firmware-left">
-          <div class="firmware-version">1.1.0</div>
-          <div class="firmware-meta">
-            <div class="meta-item">
-              <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-              <span>55.2MB</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-              <span>测试版</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-              <span>2025/10/5</span>
-            </div>
-          </div>
-        </div>
-        <div class="firmware-right">
-          <button class="btn-changelog">
-            <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-            <span>更新日志</span>
-          </button>
-          <button class="btn-download">
-            <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-            <span>下载</span>
-          </button>
-        </div>
-      </div>
+      <!-- Firmware List Label -->
+      <div class="firmware-list-label">固件列表</div>
 
-      <!-- Firmware Item 3 -->
-      <div class="firmware-item">
-        <div class="firmware-left">
-          <div class="firmware-version">1.0</div>
-          <div class="firmware-meta">
-            <div class="meta-item">
-              <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-              <span>55.2MB</span>
+      <!-- Firmware List -->
+      <div class="firmware-list">
+        <!-- Firmware Item 1 -->
+        <div class="firmware-card">
+          <div class="firmware-header">
+            <div class="firmware-left">
+              <div class="firmware-version">1.2.0</div>
+              <div class="firmware-meta">
+                <div class="meta-item">
+                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
+                  <span>55.2MB</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
+                  <span>测试版</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
+                  <span>2025/10/5</span>
+                </div>
+              </div>
             </div>
-            <div class="meta-item">
-              <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-              <span>测试版</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-              <span>2025/10/5</span>
+            <div class="firmware-right">
+              <button class="btn-changelog">
+                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
+                <span>更新日志</span>
+              </button>
+              <button class="btn-download">
+                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+                <span>下载</span>
+              </button>
             </div>
           </div>
         </div>
-        <div class="firmware-right">
-          <button class="btn-changelog">
-            <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-            <span>更新日志</span>
-          </button>
-          <button class="btn-download">
-            <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-            <span>下载</span>
-          </button>
-        </div>
-      </div>
 
-      <!-- Firmware Item 4 -->
-      <div class="firmware-item">
-        <div class="firmware-left">
-          <div class="firmware-version">0.9</div>
-          <div class="firmware-meta">
-            <div class="meta-item">
-              <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-              <span>55.2MB</span>
+        <!-- Firmware Item 2 -->
+        <div class="firmware-card">
+          <div class="firmware-header">
+            <div class="firmware-left">
+              <div class="firmware-version">1.1.0</div>
+              <div class="firmware-meta">
+                <div class="meta-item">
+                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
+                  <span>55.2MB</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
+                  <span>测试版</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
+                  <span>2025/10/5</span>
+                </div>
+              </div>
             </div>
-            <div class="meta-item">
-              <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-              <span>测试版</span>
-            </div>
-            <div class="meta-item">
-              <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-              <span>2025/10/5</span>
+            <div class="firmware-right">
+              <button class="btn-changelog">
+                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
+                <span>更新日志</span>
+              </button>
+              <button class="btn-download">
+                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+                <span>下载</span>
+              </button>
             </div>
           </div>
         </div>
-        <div class="firmware-right">
-          <button class="btn-changelog">
-            <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-            <span>更新日志</span>
-          </button>
-          <button class="btn-download">
-            <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-            <span>下载</span>
-          </button>
+
+        <!-- Firmware Item 3 -->
+        <div class="firmware-card">
+          <div class="firmware-header">
+            <div class="firmware-left">
+              <div class="firmware-version">1.0</div>
+              <div class="firmware-meta">
+                <div class="meta-item">
+                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
+                  <span>55.2MB</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
+                  <span>测试版</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
+                  <span>2025/10/5</span>
+                </div>
+              </div>
+            </div>
+            <div class="firmware-right">
+              <button class="btn-changelog">
+                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
+                <span>更新日志</span>
+              </button>
+              <button class="btn-download">
+                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+                <span>下载</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Firmware Item 4 -->
+        <div class="firmware-card">
+          <div class="firmware-header">
+            <div class="firmware-left">
+              <div class="firmware-version">0.9</div>
+              <div class="firmware-meta">
+                <div class="meta-item">
+                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
+                  <span>55.2MB</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
+                  <span>测试版</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
+                  <span>2025/10/5</span>
+                </div>
+              </div>
+            </div>
+            <div class="firmware-right">
+              <button class="btn-changelog">
+                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
+                <span>更新日志</span>
+              </button>
+              <button class="btn-download">
+                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+                <span>下载</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
