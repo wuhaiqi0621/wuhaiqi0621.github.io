@@ -12,7 +12,7 @@
     <!-- Header Section -->
     <div class="header-frame">
       <div class="header-content">
-        <div class="update-date">上次更新于 2026/02/02</div>
+        <div class="update-date" id="updateDate">上次更新于 2026/02/02</div>
         <h1 class="main-title">小米穿戴设备固件库</h1>
         <p class="subtitle">为你的穿戴设备匹配最合适的固件版本</p>
       </div>
@@ -31,11 +31,8 @@
             </div>
           </div>
           <div class="dropdown-wrapper">
-            <select class="device-select">
-              <option value="mi-band-10-pro">小米手环 10 Pro</option>
-              <option value="mi-band-10">小米手环 10</option>
-              <option value="mi-band-9">小米手环 9</option>
-              <option value="mi-band-8">小米手环 8</option>
+            <select class="device-select" id="deviceSelect">
+              <option value="">选择设备...</option>
             </select>
             <svg class="dropdown-caret" width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -48,140 +45,182 @@
       <div class="firmware-list-label">固件列表</div>
 
       <!-- Firmware List -->
-      <div class="firmware-list">
-        <!-- Firmware Item 1 -->
-        <div class="firmware-card">
-          <div class="firmware-header">
-            <div class="firmware-left">
-              <div class="firmware-version">1.2.0</div>
-              <div class="firmware-meta">
-                <div class="meta-item">
-                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-                  <span>55.2MB</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-                  <span>测试版</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-                  <span>2025/10/5</span>
-                </div>
-              </div>
-            </div>
-            <div class="firmware-right">
-              <button class="btn-changelog">
-                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-                <span>更新日志</span>
-              </button>
-              <button class="btn-download">
-                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-                <span>下载</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Firmware Item 2 -->
-        <div class="firmware-card">
-          <div class="firmware-header">
-            <div class="firmware-left">
-              <div class="firmware-version">1.1.0</div>
-              <div class="firmware-meta">
-                <div class="meta-item">
-                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-                  <span>55.2MB</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-                  <span>测试版</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-                  <span>2025/10/5</span>
-                </div>
-              </div>
-            </div>
-            <div class="firmware-right">
-              <button class="btn-changelog">
-                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-                <span>更新日志</span>
-              </button>
-              <button class="btn-download">
-                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-                <span>下载</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Firmware Item 3 -->
-        <div class="firmware-card">
-          <div class="firmware-header">
-            <div class="firmware-left">
-              <div class="firmware-version">1.0</div>
-              <div class="firmware-meta">
-                <div class="meta-item">
-                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-                  <span>55.2MB</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-                  <span>测试版</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-                  <span>2025/10/5</span>
-                </div>
-              </div>
-            </div>
-            <div class="firmware-right">
-              <button class="btn-changelog">
-                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-                <span>更新日志</span>
-              </button>
-              <button class="btn-download">
-                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-                <span>下载</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Firmware Item 4 -->
-        <div class="firmware-card">
-          <div class="firmware-header">
-            <div class="firmware-left">
-              <div class="firmware-version">0.9</div>
-              <div class="firmware-meta">
-                <div class="meta-item">
-                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
-                  <span>55.2MB</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
-                  <span>测试版</span>
-                </div>
-                <div class="meta-item">
-                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
-                  <span>2025/10/5</span>
-                </div>
-              </div>
-            </div>
-            <div class="firmware-right">
-              <button class="btn-changelog">
-                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
-                <span>更新日志</span>
-              </button>
-              <button class="btn-download">
-                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
-                <span>下载</span>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div class="firmware-list" id="firmwareList">
+        <!-- Firmware items will be rendered here by JavaScript -->
       </div>
     </div>
   </div>
+
+  <script>
+    let firmwareData = {
+      "lastUpdated": "2026/02/01",
+      "devices": {
+            "小米手环 10": [
+                  {
+                        "version": "1.4.3",
+                        "date": "2026/01/15",
+                        "size": "48.2 MB",
+                        "tag": "稳定版",
+                        "log": "修复部分内容",
+                        "file": "https://downloads.example.com/miwear/x2/1.4.3.bin"
+                  },
+                  {
+                        "version": "1.4.1",
+                        "date": "2026/01/15",
+                        "size": "60.2 MB",
+                        "tag": "Beta版",
+                        "log": "修复部分内容2",
+                        "file": "https://downloads.example.com/miwear/x1/1.4.0.bin"
+                  }
+            ]
+      }
+};
+
+    // Load firmware data from JSON file
+    async function loadFirmwareDataFromFile() {
+      try {
+        const response = await fetch('firmware.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const text = await response.text();
+        // Remove BOM if present
+        const cleanText = text.replace(/^\uFEFF/, '');
+        firmwareData = JSON.parse(cleanText);
+        initializePage();
+      } catch (error) {
+        console.error('Error loading firmware data:', error);
+        // Fallback: try XMLHttpRequest
+        loadFirmwareDataXHR();
+      }
+    }
+
+    // Fallback: Load using XMLHttpRequest
+    function loadFirmwareDataXHR() {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        if (xhr.status === 200 || xhr.status === 0) {
+          try {
+            const text = xhr.responseText.replace(/^\uFEFF/, '');
+            firmwareData = JSON.parse(text);
+            initializePage();
+          } catch (error) {
+            console.error('Error parsing JSON:', error);
+          }
+        }
+      };
+      xhr.onerror = function() {
+        console.error('Error loading firmware.json');
+      };
+      xhr.open('GET', 'firmware.json', true);
+      xhr.send();
+    }
+
+    // Initialize page with firmware data
+    function initializePage() {
+      if (!firmwareData) return;
+
+      // Update last updated date
+      const updateDate = document.getElementById('updateDate');
+      if (firmwareData.lastUpdated) {
+        updateDate.textContent = `上次更新于 ${firmwareData.lastUpdated}`;
+      }
+
+      // Populate device selector
+      const deviceSelect = document.getElementById('deviceSelect');
+      const devices = Object.keys(firmwareData.devices);
+      
+      devices.forEach(device => {
+        const option = document.createElement('option');
+        option.value = device;
+        option.textContent = device;
+        deviceSelect.appendChild(option);
+      });
+
+      // Set first device as default
+      if (devices.length > 0) {
+        deviceSelect.value = devices[0];
+        renderFirmwareList(firmwareData.devices[devices[0]]);
+      }
+
+      // Add event listener for device selection
+      deviceSelect.addEventListener('change', (e) => {
+        const selectedDevice = e.target.value;
+        if (selectedDevice && firmwareData.devices[selectedDevice]) {
+          renderFirmwareList(firmwareData.devices[selectedDevice]);
+        }
+      });
+    }
+
+    // Render firmware list based on selected device
+    function renderFirmwareList(firmwares) {
+      const firmwareList = document.getElementById('firmwareList');
+      firmwareList.innerHTML = '';
+
+      if (!Array.isArray(firmwares)) {
+        console.error('Firmwares is not an array:', firmwares);
+        return;
+      }
+
+      firmwares.forEach(firmware => {
+        const card = document.createElement('div');
+        card.className = 'firmware-card';
+        
+        card.innerHTML = `
+          <div class="firmware-header">
+            <div class="firmware-left">
+              <div class="firmware-version">${firmware.version}</div>
+              <div class="firmware-meta">
+                <div class="meta-item">
+                  <img src="assets/Package.svg" alt="Package" class="meta-icon" />
+                  <span>${firmware.size}</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Tag.svg" alt="Tag" class="meta-icon" />
+                  <span>${firmware.tag}</span>
+                </div>
+                <div class="meta-item">
+                  <img src="assets/Clock.svg" alt="Clock" class="meta-icon" />
+                  <span>${firmware.date}</span>
+                </div>
+              </div>
+            </div>
+            <div class="firmware-right">
+              <button class="btn-changelog" onclick="showChangelog('${firmware.version}', '${firmware.log || '暂无更新日志'}')">
+                <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
+                <span>更新日志</span>
+              </button>
+              <button class="btn-download" onclick="downloadFirmware('${firmware.file}', '${firmware.version}')">
+                <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+                <span>下载</span>
+              </button>
+            </div>
+          </div>
+        `;
+        
+        firmwareList.appendChild(card);
+      });
+    }
+
+    // Show changelog
+    function showChangelog(version, log) {
+      alert(`固件版本 ${version} 的更新日志：\n\n${log}`);
+    }
+
+    // Download firmware function
+    function downloadFirmware(url, version) {
+      console.log(`Downloading firmware version ${version} from ${url}`);
+      alert(`准备下载固件版本 ${version}`);
+      // In a real application, this would trigger a download
+      // window.location.href = url;
+    }
+
+    // Initialize page when ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializePage);
+    } else {
+      initializePage();
+    }
+  </script>
 </body>
 </html>
