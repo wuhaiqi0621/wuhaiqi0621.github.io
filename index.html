@@ -193,7 +193,7 @@
   <div id="changelogModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 id="changelogTitle">固件版本 1.0 的更新日志</h2>
+        <h2 id="changelogTitle">v1.0 更新日志</h2>
         <button class="modal-close" onclick="closeChangelogModal()">&times;</button>
       </div>
       <div class="modal-body">
@@ -334,8 +334,8 @@
     // Show changelog in modal
     function showChangelog(version, log, file) {
       currentFirmwareInfo = { version, log, file };
-      document.getElementById('changelogTitle').textContent = `固件版本 ${version} 的更新日志`;
-      document.getElementById('changelogText').textContent = log || '暂无更新日志';
+      document.getElementById('changelogTitle').textContent = `v${version} 更新日志`;
+      document.getElementById('changelogText').textContent = log || '暂无内容';
       document.getElementById('changelogModal').style.display = 'flex';
     }
 
