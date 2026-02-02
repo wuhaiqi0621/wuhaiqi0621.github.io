@@ -6,6 +6,119 @@
   <title>小米穿戴设备固件库</title>
   <link rel="stylesheet" href="https://i02.appmifile.com/i18n/fonts/MiSansChinese/index.css">
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: #21212b;
+      border-radius: 26.4px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'MiSans VF';
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 28px;
+      cursor: pointer;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'MiSans VF';
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .modal-footer {
+      padding: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-modal-download {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      background-color: #0088ff;
+      color: white;
+      border: none;
+      border-radius: 11px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'MiSans VF';
+    }
+
+    .btn-modal-download:hover {
+      background-color: #0077dd;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
+    }
+
+    .btn-modal-download:active {
+      transform: translateY(0);
+    }
+
+    .btn-modal-download .btn-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
   <div class="frame-container">
@@ -46,6 +159,25 @@
       <!-- Firmware List -->
       <div class="firmware-list" id="firmwareList">
         <!-- Firmware items will be rendered here by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Changelog -->
+  <div id="changelogModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="changelogTitle">固件版本 1.0 的更新日志</h2>
+        <button class="modal-close" onclick="closeChangelogModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="changelogText">暂无更新日志</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal-download" onclick="downloadFromModal()">
+          <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
+          <span>下载固件</span>
+        </button>
       </div>
     </div>
   </div>
@@ -150,7 +282,7 @@
               </div>
             </div>
             <div class="firmware-right">
-              <button class="btn-changelog" onclick="showChangelog('${firmware.version}', '${(firmware.log || '暂无更新日志').replace(/'/g, "\\'")}')">
+              <button class="btn-changelog" onclick="showChangelog('${firmware.version}', '${(firmware.log || '暂无更新日志').replace(/'/g, "\\'")}', '${firmware.file}')">
                 <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
                 <span>更新日志</span>
               </button>
@@ -166,18 +298,51 @@
       });
     }
 
-    // Show changelog
-    function showChangelog(version, log) {
-      alert(`固件版本 ${version} 的更新日志：\n\n${log}`);
+    // Store current firmware info for modal
+    let currentFirmwareInfo = {
+      version: '',
+      log: '',
+      file: ''
+    };
+
+    // Show changelog in modal
+    function showChangelog(version, log, file) {
+      currentFirmwareInfo = { version, log, file };
+      document.getElementById('changelogTitle').textContent = `固件版本 ${version} 的更新日志`;
+      document.getElementById('changelogText').textContent = log || '暂无更新日志';
+      document.getElementById('changelogModal').style.display = 'flex';
     }
 
-    // Download firmware function
+    // Close changelog modal
+    function closeChangelogModal() {
+      document.getElementById('changelogModal').style.display = 'none';
+    }
+
+    // Download from modal
+    function downloadFromModal() {
+      if (currentFirmwareInfo.file) {
+        console.log(`Downloading firmware version ${currentFirmwareInfo.version} from ${currentFirmwareInfo.file}`);
+        alert(`准备下载固件版本 ${currentFirmwareInfo.version}`);
+        // In a real application, this would trigger a download
+        // window.location.href = currentFirmwareInfo.file;
+      }
+    }
+
+    // Download firmware function (for direct download button)
     function downloadFirmware(url, version) {
       console.log(`Downloading firmware version ${version} from ${url}`);
       alert(`准备下载固件版本 ${version}`);
       // In a real application, this would trigger a download
       // window.location.href = url;
     }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('changelogModal');
+      if (e.target === modal) {
+        closeChangelogModal();
+      }
+    });
 
     // Load data when page is ready
     window.addEventListener('load', loadFirmwareData);
