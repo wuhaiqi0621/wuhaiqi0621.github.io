@@ -441,7 +441,7 @@ html, body {
 }
 
 .modal.show {
-  display: flex;
+  display: flex !important;
   animation: fadeIn 0.3s ease-out;
 }
 
