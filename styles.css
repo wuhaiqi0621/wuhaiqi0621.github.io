@@ -545,12 +545,12 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 9.68px;
-  padding: 12.1px 14.52px;
+  padding: 6.6px 8.8px;
   background-color: rgba(221, 234, 248, 0.1);
   color: #b0b4ba;
   border: none;
-  border-radius: 8.8px;
-  font-size: 14.52px;
+  border-radius: 5.5px;
+  font-size: 13.2px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -564,12 +564,12 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 9.68px;
-  padding: 12.1px 14.52px;
-  background-color: #0088ff;
-  color: white;
+  padding: 6.6px 8.8px;
+  background-color: rgba(0, 136, 255, 0.25);
+  color: #1491ff;
   border: none;
-  border-radius: 8.8px;
-  font-size: 14.52px;
+  border-radius: 5.5px;
+  font-size: 13.2px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -579,7 +579,7 @@ html, body {
 }
 
 .btn-modal-download:hover {
-  background-color: #0076d6;
+  background-color: rgba(0, 136, 255, 0.35);
   transform: translateY(-2px);
 }
 
