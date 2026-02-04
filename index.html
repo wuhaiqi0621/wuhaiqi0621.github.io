@@ -221,19 +221,15 @@
     // Download from modal
     function downloadFromModal() {
       if (currentFirmwareInfo.file) {
-        console.log(`Downloading firmware version ${currentFirmwareInfo.version} from ${currentFirmwareInfo.file}`);
-        alert(`准备下载固件版本 ${currentFirmwareInfo.version}`);
-        // In a real application, this would trigger a download
-        // window.location.href = currentFirmwareInfo.file;
+        console.log(`Opening firmware version ${currentFirmwareInfo.version} from ${currentFirmwareInfo.file}`);
+        window.open(currentFirmwareInfo.file, '_blank');
       }
     }
 
     // Download firmware function (for direct download button)
     function downloadFirmware(url, version) {
-      console.log(`Downloading firmware version ${version} from ${url}`);
-      alert(`准备下载固件版本 ${version}`);
-      // In a real application, this would trigger a download
-      // window.location.href = url;
+      console.log(`Opening firmware version ${version} from ${url}`);
+      window.open(url, '_blank');
     }
 
     // Close modal when clicking outside
