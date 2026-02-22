@@ -172,11 +172,11 @@
               </div>
             </div>
             <div class="firmware-right">
-              <button class="btn-changelog" onclick="showChangelog('${firmware.version}', '${(firmware.log || '暂无更新日志').replace(/'/g, "\\'")}', '${firmware.file}')">
+              <button class="btn-changelog">
                 <img src="assets/ChatCenteredText.svg" alt="Chat" class="btn-icon" />
                 <span>更新日志</span>
               </button>
-              <button class="btn-download" onclick="downloadFirmware('${firmware.file}', '${firmware.version}')">
+              <button class="btn-download">
                 <img src="assets/BoxArrowDown.svg" alt="Download" class="btn-icon" />
                 <span>下载</span>
               </button>
@@ -185,6 +185,18 @@
         `;
         
         firmwareList.appendChild(card);
+
+        const changelogButton = card.querySelector('.btn-changelog');
+        const downloadButton = card.querySelector('.btn-download');
+        const logText = firmware.log || '暂无更新日志';
+
+        changelogButton.addEventListener('click', () => {
+          showChangelog(firmware.version, logText, firmware.file);
+        });
+
+        downloadButton.addEventListener('click', () => {
+          downloadFirmware(firmware.file, firmware.version);
+        });
       });
       
       // Trigger animation by adding loaded class
@@ -204,7 +216,8 @@
     function showChangelog(version, log, file) {
       currentFirmwareInfo = { version, log, file };
       document.getElementById('changelogTitle').textContent = `v${version} 更新日志`;
-      document.getElementById('changelogText').textContent = log || '暂无内容';
+      const normalizedLog = normalizeChangelog(log);
+      document.getElementById('changelogText').textContent = normalizedLog || '暂无内容';
       const modal = document.getElementById('changelogModal');
       modal.classList.add('show');
     }
@@ -216,6 +229,37 @@
       setTimeout(() => {
         modal.style.display = 'none';
       }, 300);
+    }
+
+    function normalizeChangelog(log) {
+      const raw = String(log || '')
+        .replace(/\r\n/g, '\n')
+        .replace(/\r/g, '\n')
+        .replace(/[\u00A0\u3000]/g, ' ')
+        .replace(/[\u200B\uFEFF]/g, '');
+      const lines = raw.split('\n').map((line) => line.replace(/[ \t]+$/g, ''));
+      let start = 0;
+      let end = lines.length;
+
+      while (start < end && lines[start].trim() === '') start += 1;
+      while (end > start && lines[end - 1].trim() === '') end -= 1;
+
+      const trimmed = lines.slice(start, end).map((line) => line.replace(/^[ \t]+/g, ''));
+      const result = [];
+      let prevBlank = false;
+
+      for (const line of trimmed) {
+        const isBlank = line.trim() === '';
+        if (isBlank) {
+          if (!prevBlank) result.push('');
+          prevBlank = true;
+          continue;
+        }
+        result.push(line);
+        prevBlank = false;
+      }
+
+      return result.join('\n');
     }
 
     // Download from modal
